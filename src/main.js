@@ -1,12 +1,16 @@
 // import { useEffect } from 'react';
-// import {
-//     loadFaceLandmarkModel,
-//     loadFaceRecognitionModel,
-//     loadSsdMobilenetv1Model,
-// } from 'face-api.js';
+ /*import {
+     loadFaceLandmarkModel,
+     loadFaceRecognitionModel,
+     loadSsdMobilenetv1Model,
+ } from 'face-api.js';*/
 // import cv from 'opencv.js';
 
-const MODEL_URL = '/models'; // Ensure models are served from this path
+//const MODEL_URL = './models'; //all models are served from this path
+
+
+/*
+const MODEL_URL = '../models'; // Ensure models are served from this path
 
 const loadModels = async () => {
     try {
@@ -76,3 +80,20 @@ Promise.all(
   
   startVideo();
   */
+
+  let abutton = document.getElementById('abutton');
+  let avideo = document.getElementById('avideo');
+  avideo.muted = true;
+  abutton.addEventListener('click', () => {
+    navigator.mediaDevices.getUserMedia({
+      video: true,
+      audio: true,
+    }).then((stream) => {
+      avideo.srcObject = stream;
+      avideo.addEventListener('loadedmetadata', () => {
+        avideo.play();
+      })
+    }).catch(alert);
+
+  })
+
