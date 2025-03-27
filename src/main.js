@@ -188,6 +188,7 @@ startVideo();
       let obj = detect[0].expressions
       let feeling = ''
       let feelnum = 0;
+      let emoji;
       for(const keys in obj) {
         if(obj[keys] > feelnum) {
           feelnum = obj[keys];
@@ -195,12 +196,42 @@ startVideo();
         }
       } 
       //changed the expression from neutral to calm
-      if(feeling === 'neutral') {
-        feeling = ' calm';
+
+      switch(feeling) {
+        case 'neutral':
+          emoji = String.fromCodePoint(0x1F611);
+          feeling = emoji;
+          break;
+        case 'happy':
+          emoji = String.fromCodePoint(0x1F604);
+          feeling = emoji;
+          break;
+        case 'sad':
+          emoji = String.fromCodePoint(0x1F622);
+          feeling = emoji;
+          break;
+        case 'angry':
+          emoji = String.fromCodePoint(0x1F92C);
+          feeling = emoji;
+          break;
+        case 'fearful':
+          emoji = String.fromCodePoint(0x1F631);
+          feeling = emoji;
+          break;
+        case 'disgusted':
+          emoji = String.fromCodePoint(0x1F92E);
+          feeling = emoji;
+          break;
+        case 'surprised':
+          emoji = String.fromCodePoint(0x1F632);
+          feeling = emoji;
+          break;
       }
       const aFeeling = document.getElementById('expression')
       aFeeling.textContent = feeling;
       aFeeling.style.paddingLeft = '10px';
+      aFeeling.style.fontSize = '50px';
+      //aFeeling.style.paddingBottom = '100px';
       
       //added a second event listener on the same press so that it clears the canvas as well as the srcObject
       astopbutton.addEventListener('click', () => {
