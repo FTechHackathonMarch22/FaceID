@@ -156,9 +156,10 @@ startVideo();
     //matches the dimensions of the canvas and the displayed size
     faceapi.matchDimensions(canvas, displaySize);
 
-    //set interval so it checks the images for a face recognition every 100 milliseconds
+    //sets the interval so it checks the images for a face recognition every 100 milliseconds
     setInterval(async () => {
-      //passes on the element which is the video webcam(avideo) and which library to use
+      
+      //Passes on the element which is the video webcam(avideo) and which library to use
       //in this case its tinyFaceDetector
       //using withFaceLandmarks to draw the faces on the webcam
       //withFaceExpression will detect whether the image fom webcam is happy, sad, etc.
