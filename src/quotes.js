@@ -1,13 +1,9 @@
 const quotes = {
   neutralQuotes: [
     'I am doing the best I can, and that is enough.',
-
     'I trust myself to make the right decisions.',
-
     'I am grounded, mindful, and at peace.',
-
     'Each day is a fresh start.',
-
     'I have everything I need within me.',
   ],
   sadQuotes: [
@@ -17,12 +13,19 @@ const quotes = {
     'This moment is tough, but it won’t last forever.',
     'I’ve made it through every difficult day so far. I can do this too.',
   ],
-  angry: [
+  angryQuotes: [
     'I can feel anger without letting it control me.',
     'It’s okay to be mad — my emotions are valid.',
     'I choose to respond, not react.',
     'I am allowed to take space to cool down and reflect.',
     'My anger is a signal, not a sentence. I will listen and then release.',
+  ],
+  happyQuotes: [
+    'I accept joy as my standard of living.',
+    'Kawhi Leonard plays basketball today.',
+    'I take ownership of my happiness.',
+   'I prioritize things that bring me joy.',
+  'I choose to celebrate the good things in my life.',
   ],
 };
 

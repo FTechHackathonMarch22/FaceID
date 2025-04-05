@@ -1,3 +1,4 @@
+import quotes from '../src/quotes';
 // import { useEffect } from 'react';
 /*import {
      loadFaceLandmarkModel,
@@ -93,6 +94,8 @@ Promise.all(
       err => console.error(err)
     )
 }
+
+
 
 startVideo();
 */
@@ -238,11 +241,17 @@ avideo.addEventListener('play', () => {
     aFeeling.style.fontSize = '50px';
 
 
-if(feeling === 'neutral'){
-  for (const elem of quoteArr){
-  
-  }
-}
+    if (quotes[feeling]) {
+      const quoteArr = quotes[feeling]; // Get the array of quotes based on feeling
+      const randomIndex = Math.floor(Math.random() * quoteArr.length); // Pick a random quote
+      const selectedQuote = quoteArr[randomIndex];
+    
+      const quoteElement = document.getElementById('quoteBox'); // Assuming you have an element with id 'quoteBox'
+      quoteElement.textContent = selectedQuote;
+      quoteElement.style.fontSize = '20px'; // Or any styling you prefer
+    }
+
+   
 
     //aFeeling.style.paddingBottom = '100px';
 
