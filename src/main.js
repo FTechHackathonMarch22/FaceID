@@ -1,4 +1,3 @@
-import quotes from '../src/quotes';
 // import { useEffect } from 'react';
 /*import {
      loadFaceLandmarkModel,
@@ -99,6 +98,39 @@ Promise.all(
 
 startVideo();
 */
+
+// import { quotes } from './quotes';
+const quotes = {
+  neutralQuotes: [
+    'I am doing the best I can, and that is enough.',
+    'I trust myself to make the right decisions.',
+    'I am grounded, mindful, and at peace.',
+    'Each day is a fresh start.',
+    'I have everything I need within me.',
+  ],
+  sadQuotes: [
+    "It's okay to feel this way. Emotions come and go like waves.",
+    'I am allowed to rest. Healing takes time.',
+    'Even on my hard days, I am worthy of love and compassion.',
+    'This moment is tough, but it won’t last forever.',
+    'I’ve made it through every difficult day so far. I can do this too.',
+  ],
+  angryQuotes: [
+    'I can feel anger without letting it control me.',
+    'It’s okay to be mad — my emotions are valid.',
+    'I choose to respond, not react.',
+    'I am allowed to take space to cool down and reflect.',
+    'My anger is a signal, not a sentence. I will listen and then release.',
+  ],
+  happyQuotes: [
+    'I accept joy as my standard of living.',
+    'Kawhi Leonard plays basketball today.',
+    'I take ownership of my happiness.',
+    'I prioritize things that bring me joy.',
+    'I choose to celebrate the good things in my life.',
+  ],
+};
+
 let abutton = document.getElementById('abutton');
 let avideo = document.getElementById('avideo');
 let astopbutton = document.getElementById('stop');
@@ -204,7 +236,7 @@ avideo.addEventListener('play', () => {
       }
     }
     //changed the expression from neutral to calm
-
+    let wordFeeling = feeling;
     switch (feeling) {
       case 'neutral':
         emoji = String.fromCodePoint(0x1f611);
@@ -240,18 +272,26 @@ avideo.addEventListener('play', () => {
     aFeeling.style.paddingLeft = '10px';
     aFeeling.style.fontSize = '50px';
 
-
-    if (quotes[feeling]) {
-      const quoteArr = quotes[feeling]; // Get the array of quotes based on feeling
+    let stringFeel = wordFeeling + "Quotes";
+    if (quotes[stringFeel]) {
+      const quoteArr = quotes[stringFeel]; // Get the array of quotes based on the feeling
       const randomIndex = Math.floor(Math.random() * quoteArr.length); // Pick a random quote
-      const selectedQuote = quoteArr[randomIndex];
+      const selectedQuote = quoteArr[randomIndex]; // Store the selected quote
     
       const quoteElement = document.getElementById('quoteBox'); // Assuming you have an element with id 'quoteBox'
-      quoteElement.textContent = selectedQuote;
-      quoteElement.style.fontSize = '20px'; // Or any styling you prefer
+    
+      // Check if the quoteElement exists to avoid potential errors
+      if (quoteElement) {
+        quoteElement.textContent = selectedQuote; // Set the text content of the quote box
+        quoteElement.style.fontSize = '20px'; // Set font size or any other style you prefer
+        quoteElement.style.padding = '10px'; // Optional: Adding some padding for a better appearance
+      } else {
+        console.error('Element with id "quoteBox" not found.');
+      }
+    } else {
+      console.error('No quotes available for the selected feeling.');
     }
-
-   
+    
 
     //aFeeling.style.paddingBottom = '100px';
 
@@ -259,5 +299,5 @@ avideo.addEventListener('play', () => {
     astopbutton.addEventListener('click', () => {
       canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
     });
-  }, 100);
+  }, 1000);
 });
