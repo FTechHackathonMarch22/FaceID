@@ -1,3 +1,4 @@
+import quotes from './quotes.js'
 // import { useEffect } from 'react';
 /*import {
      loadFaceLandmarkModel,
@@ -100,7 +101,7 @@ startVideo();
 */
 
 // import { quotes } from './quotes';
-const quotes = {
+/*const quotes = {
   neutralQuotes: [
     'I am doing the best I can, and that is enough.',
     'I trust myself to make the right decisions.',
@@ -130,7 +131,7 @@ const quotes = {
     'I choose to celebrate the good things in my life.',
   ],
 };
-
+*/
 let abutton = document.getElementById('abutton');
 let avideo = document.getElementById('avideo');
 let astopbutton = document.getElementById('stop');
