@@ -27,6 +27,13 @@ const quotes = {
    'I prioritize things that bring me joy.',
   'I choose to celebrate the good things in my life.',
   ],
+ fearQuotes: [
+'The best way out is always through', 
+'Everything you want is on the other side of fear.',
+'The scariest moment is always just before you start.',
+'You gain strength, courage, and confidence by every experience in which you really stop to look fear in the face.'
+'Never let the fear of striking out get in your way.'  
+  ],
 };
 
 export default quotes;
